@@ -5,40 +5,31 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dbcommon.DBCommon;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import service.MyService;
+import service.MyServiceImpl;
 
 public class Controller implements Initializable{
 		Parent root;
+		MyService ms;
 		public void setRoot(Parent root) {
 			this.root = root;
+			ms.setRoot(root);
 		}		
 
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
+			ms = new MyServiceImpl();
 			DBCommon.setDBConnection(); //연결
 			
 		}
 		public void loginBut() {
-			Stage stage = new Stage();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
-			Parent root1=null;
-			try {
-				root1 = loader.load();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Scene scene = new Scene(root1);
-			
-			LoginController ctl = loader.getController();
-			ctl.setRoot(root1);
-			
-			stage.setScene(scene);
-			stage.show();
+			ms.login();
 		}
 		public void seekBut() {
 			System.out.println("찾기 버튼");
