@@ -7,7 +7,7 @@ import dbcommon.DBCommon;
 import membership.MemberDTO;
 import memdto.MemDTO;
 
-public class DBServiceImpl implements DBService{
+public class DBserviceImpl implements DBService{
 	PreparedStatement ps;
 	ResultSet rs;
 	@Override

@@ -2,7 +2,7 @@ package service;
 
 import java.io.IOException;
 
-import dbservice.DBServiceImpl;
+import dbservice.DBserviceImpl;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,7 +17,7 @@ public class MyServiceImpl implements MyService{
 	
 	Parent root;
 	
-	DBServiceImpl db = new DBServiceImpl();
+	DBserviceImpl db = new DBserviceImpl();
 	
 	@Override
 	public void setRoot(Parent root) {
