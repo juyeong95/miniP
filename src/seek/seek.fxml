@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane prefHeight="231.0" prefWidth="513.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="seek.SeekController">
+   <children>
+      <Label layoutX="110.0" layoutY="31.0" text="아이디 비밀번호 찾기">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="30.0" layoutY="113.0" mnemonicParsing="false" onAction="#findidBut" prefHeight="63.0" prefWidth="147.0" text="아이디 찾기">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="186.0" layoutY="113.0" mnemonicParsing="false" onAction="#findpwdBut" prefHeight="63.0" prefWidth="147.0" text="비밀번호 찾기">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="340.0" layoutY="113.0" mnemonicParsing="false" onAction="#exitBut" prefHeight="63.0" prefWidth="147.0" text="나 가 기">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
-

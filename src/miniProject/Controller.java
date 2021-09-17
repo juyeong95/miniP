@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import membership.MembershipMain;
+import seek.SeekMain;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import service.MyService;
@@ -19,6 +20,7 @@ public class Controller implements Initializable{
 		Parent root;
 		MembershipMain msm;
 		MyService ms;
+		SeekMain sm;
 		public void setRoot(Parent root) {
 			this.root = root;
 			ms.setRoot(root);
@@ -29,19 +31,20 @@ public class Controller implements Initializable{
 			ms = new MyServiceImpl();
 			DBCommon.setDBConnection(); //연결
 			msm = new MembershipMain();
+			sm = new SeekMain();
 		}
 		public void loginBut() {
 			ms.login();
 
 		}
 		public void seekBut() {
-			System.out.println("찾기 버튼");
+			sm.OpenSeek();
 		}
 		public void memberBut() {
 			msm.OpenMembership(); //회원가입 완료
 		}
 		public void masterBut() {
-			System.out.println("마스터 버튼");
+			System.out.println("마스터");
 		}
 		
 	

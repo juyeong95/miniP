@@ -58,7 +58,8 @@ public class MembershipServiceImpl implements MembershipService{
 
 	@Override
 	public void cancel() {
-		// TODO Auto-generated method stub
+		Stage s = (Stage)root.getScene().getWindow();
+		s.close();
 		
 	}
 

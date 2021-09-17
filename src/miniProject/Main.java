@@ -23,10 +23,6 @@ public class Main extends Application{
 		arg0.show();
 	}
 	
-
-
-
-
 		public static void main(String[] args) {
 			launch(args);
 		}

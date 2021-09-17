@@ -1,28 +1,27 @@
-package membership;
+package seek;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
 
-public class MembershipController implements Initializable{
+public class FindidController implements Initializable{
 	Parent root;
-	MembershipService mss;
-	
 	public void setRoot(Parent root) {
 		this.root=root;
-		mss.setRoot(root);
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		mss = new MembershipServiceImpl();
+		// TODO Auto-generated method stub
 		
 	}
-	public void confirmBut() {
-		mss.confirm();
+	public void findBut() {
+		
 	}
-	public void cancelBut() {
-		mss.cancel();
+	public void exitBut() {
+		Stage s = (Stage)root.getScene().getWindow();
+		s.close();
 	}
 }
