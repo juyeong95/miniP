@@ -11,6 +11,8 @@ import memdto.MemDTO;
 public class DBserviceImpl implements DBService{
 	PreparedStatement ps;
 	ResultSet rs;
+	
+	@Override
 	public MemDTO loginCheck(String id) {
 		
 		String sql = "select * from MEMBER where id=?";
@@ -53,6 +55,8 @@ public class DBserviceImpl implements DBService{
 		
 		return result;
 	}
+	
+	
 
 }
 
