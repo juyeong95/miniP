@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="555.0" prefWidth="538.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="miniProject.Controller">
+<AnchorPane prefHeight="555.0" prefWidth="538.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="miniProject.LoginController">
    <children>
       <Button fx:id="fxList" layoutX="99.0" layoutY="349.0" mnemonicParsing="false" text="목록확인">
          <font>
