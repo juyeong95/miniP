@@ -6,8 +6,11 @@ import java.util.ResourceBundle;
 import dbcommon.DBCommon;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import master.MasterController;
+import master.MasterMain;
 
 public class Controller implements Initializable{
+		MasterMain mm;
 		Parent root;
 		public void setRoot(Parent root) {
 			this.root = root;
@@ -15,6 +18,7 @@ public class Controller implements Initializable{
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			DBCommon.setDBConnection(); //연결
+			mm = new MasterMain(); //masterMain 객체 생성
 			
 		}
 		public void loginBut() {
@@ -27,6 +31,6 @@ public class Controller implements Initializable{
 			System.out.println("회원가입 버튼");
 		}
 		public void masterBut() {
-			System.out.println("마스터 버튼");
+			mm.getMasterLogin();
 		}
 }

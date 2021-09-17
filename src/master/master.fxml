@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="179.0" prefWidth="307.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="master.MasterController">
+   <children>
+      <TextField fx:id="masterId" layoutX="35.0" layoutY="64.0" prefHeight="23.0" prefWidth="140.0" promptText="masterId" />
+      <TextField fx:id="masterPwd" layoutX="35.0" layoutY="101.0" prefHeight="23.0" prefWidth="140.0" promptText="masterPwd" />
+      <Label layoutX="61.0" layoutY="6.0" prefHeight="54.0" prefWidth="240.0" text="&lt;관리자 계정 로그인&gt;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="206.0" layoutY="63.0" mnemonicParsing="false" onAction="#masterLogin" prefHeight="61.0" prefWidth="66.0" text="login" />
+      <Button layoutX="207.0" layoutY="137.0" mnemonicParsing="false" onAction="#masterBack" prefHeight="23.0" prefWidth="66.0" text="뒤로가기" />
+   </children>
+</AnchorPane>
