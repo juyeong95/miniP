@@ -1,7 +1,7 @@
 package membership;
 
 import dbservice.DBService;
-import dbservice.DBserviceImpl;
+import dbservice.DBServiceImpl;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -13,7 +13,7 @@ public class MembershipServiceImpl implements MembershipService{
 	Parent root;
 	DBService db;
 	public MembershipServiceImpl() {
-		db = new DBserviceImpl();
+		db = new DBServiceImpl();
 	}
 	@Override
 	public void setRoot(Parent root) {
