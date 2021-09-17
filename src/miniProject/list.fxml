@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="555.0" prefWidth="538.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="miniProject.Controller">
+   <children>
+      <Button fx:id="fxList" layoutX="99.0" layoutY="349.0" mnemonicParsing="false" text="목록확인">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="fxRent" layoutX="361.0" layoutY="349.0" mnemonicParsing="false" text="대여">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField layoutX="85.0" layoutY="77.0" prefHeight="111.0" prefWidth="364.0" />
+   </children>
+</AnchorPane>

@@ -1,5 +1,7 @@
 package miniProject;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +22,11 @@ public class Main extends Application{
 		arg0.setScene(scene);
 		arg0.show();
 	}
+	
+
+
+
+
 		public static void main(String[] args) {
 			launch(args);
 		}
