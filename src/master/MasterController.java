@@ -29,5 +29,5 @@ public class MasterController implements Initializable{
 	public void masterBack() {	  //마스터 뒤로가기 onAction
 		
 	}
-
+	
 }
