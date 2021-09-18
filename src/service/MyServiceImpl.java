@@ -33,6 +33,8 @@ public class MyServiceImpl implements MyService{
 		
 		MemDTO dto = db.loginCheck(txid.getText());
 		System.out.println(dto);
+		
+		
 		if(dto != null) {
 			if(dto.getPwd().equals(txpw.getText())) {
 				Stage stage = new Stage();
@@ -54,16 +56,28 @@ public class MyServiceImpl implements MyService{
 				
 			}
 			else {
-				Alert alert = new Alert(AlertType.ERROR);
-				alert.setContentText("비밀번호가 틀렸습니다.");
-				alert.show();
+				if(txpw.getText().isEmpty()) {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setContentText("비밀번호를 입력해주세요.");
+					alert.show();
+				}else {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setContentText("비밀번호가 틀렸습니다.");
+					alert.show();
+				}
 			}
 		} else {
-			 
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setContentText("아이디가 틀렸습니다.");
-			alert.show();
+			if(txid.getText().isEmpty()) {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setContentText("아이디를 입력해주세요.");
+				alert.show();
+			}else {
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setContentText("등록되지 않은 아이디 입니다.");
+				alert.show();
+			}
 			
+		
 		}
 		
 		
