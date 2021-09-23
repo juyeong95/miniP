@@ -5,7 +5,7 @@ public class MasterBookDTO {
 	private String title;
 	private String author;
 	private String publisher;
-	private String borrow;
+	
 	public String getBookNum() {
 		return bookNum;
 	}
@@ -30,12 +30,7 @@ public class MasterBookDTO {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	public String getBorrow() {
-		return borrow;
-	}
-	public void setBorrow(String borrow) {
-		this.borrow = borrow;
-	}
+
 	
 	
 }
