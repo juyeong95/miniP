@@ -43,7 +43,6 @@ public class Controller implements Initializable{
 		}
 		public void masterBut() {
 			mm.getMasterLogin();
-			System.out.println("마스터");
 		}
 		
 	
