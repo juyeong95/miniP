@@ -3,6 +3,10 @@ package dbcommon;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
 public class DBCommon {
 	public static Connection con;
 	public static void setDBConnection() {
@@ -14,4 +18,12 @@ public class DBCommon {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void getAlert(String msg) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setContentText(msg);
+		alert.show();
+	}
+	
+	
 }

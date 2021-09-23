@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
 import master.login.MasterLoginMain;
 
 public class MasterController implements Initializable{
@@ -27,7 +28,8 @@ public class MasterController implements Initializable{
 	}
 	
 	public void masterBack() {	  //마스터 뒤로가기 onAction
-		
+		Stage s = (Stage)root.getScene().getWindow();
+		s.close();
 	}
 	
 }

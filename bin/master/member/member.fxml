@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="217.0" prefWidth="317.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="master.member.MasterMemberController">
+<AnchorPane prefHeight="217.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.member.MasterMemberController">
    <children>
-      <Label layoutX="119.0" layoutY="40.0" prefHeight="21.0" prefWidth="89.0" text="멤버기능 ">
+      <Label layoutX="101.0" layoutY="19.0" prefHeight="21.0" prefWidth="141.0" text="&lt;회원 관리&gt;">
          <font>
-            <Font size="18.0" />
+            <Font size="23.0" />
          </font>
       </Label>
+      <Button layoutX="242.0" layoutY="82.0" mnemonicParsing="false" onAction="#memberSearch" prefHeight="38.0" prefWidth="64.0" text="검색" />
+      <TextField fx:id="memberSearchId" layoutX="41.0" layoutY="82.0" prefHeight="38.0" prefWidth="174.0" promptText="회원아이디" />
+      <Button layoutX="243.0" layoutY="154.0" mnemonicParsing="false" onAction="#memberBack" text="뒤로가기" />
    </children>
 </AnchorPane>
