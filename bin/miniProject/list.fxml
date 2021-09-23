@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="168.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniProject.LoginController">
+<AnchorPane prefHeight="168.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniProject.LoginController">
    <children>
       <Button fx:id="fxRent" layoutX="131.0" layoutY="107.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="128.0" text="대여">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Label fx:id="brLabel" layoutX="207.0" layoutY="11.0" prefHeight="20.0" prefWidth="40.0" text="Label" />
-      <Label fx:id="brLabel2" layoutX="207.0" layoutY="44.0" text="Label" />
+      <Label fx:id="brLabel" layoutX="207.0" layoutY="11.0" prefHeight="20.0" prefWidth="91.0" text="Label" />
+      <Label fx:id="brLabel2" layoutX="207.0" layoutY="44.0" prefHeight="15.0" prefWidth="91.0" text="Label" />
       <Label layoutX="150.0" layoutY="44.0" text="저자" />
       <Label layoutX="150.0" layoutY="14.0" text="제목" />
-      <Label fx:id="brLabel3" layoutX="207.0" layoutY="77.0" text="Label" />
+      <Label fx:id="brLabel3" layoutX="207.0" layoutY="77.0" prefHeight="15.0" prefWidth="91.0" text="Label" />
       <Label layoutX="150.0" layoutY="77.0" text="출판사" />
    </children>
 </AnchorPane>
