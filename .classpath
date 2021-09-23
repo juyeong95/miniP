@@ -7,10 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx"/>
-<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Admin/Desktop/javaProject/Oracle/ojdbc6.jar"/>
-=======
-	<classpathentry kind="lib" path="C:/Users/sc sh/Desktop/ojdbc6.jar"/>
->>>>>>> 015ce3136f6cfbfc839869cc37b4e880780c96b8
 	<classpathentry kind="output" path="bin"/>
 </classpath>
