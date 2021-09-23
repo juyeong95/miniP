@@ -3,10 +3,15 @@ package master.add;
 import java.util.ArrayList;
 
 import javafx.scene.Parent;
+import javafx.scene.control.TextField;
 
 public interface MasterAddService {
 
 	public void setRoot(Parent root);
-	public void BookAdd();
-	public ArrayList<MasterBookDTO> BookList();
+	public int BookAdd(MasterBookDTO dto);
+	public MasterBookDTO BookAdd1();
+	
+	
+	
+	
 }
