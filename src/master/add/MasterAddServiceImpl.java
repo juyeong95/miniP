@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 
 public class MasterAddServiceImpl implements MasterAddService{
+	PreparedStatement ps;
 	Parent root;
 	int result = 0;
 	@Override
@@ -25,7 +26,6 @@ public class MasterAddServiceImpl implements MasterAddService{
 	
 			try {
 				DBCommon.setDBConnection();
-				PreparedStatement ps;
 				ps = DBCommon.con.prepareStatement(sql);
 				ps.setString(1, dto.getBookNum());
 				ps.setString(2, dto.getTitle());

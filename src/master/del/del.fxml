@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="217.0" prefWidth="317.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="master.del.MasterDelController">
+<AnchorPane prefHeight="186.0" prefWidth="317.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.del.MasterDelController">
    <children>
-      <Label layoutX="119.0" layoutY="40.0" prefHeight="21.0" prefWidth="89.0" text="삭제기능 ">
+      <Label layoutX="114.0" layoutY="23.0" prefHeight="29.0" prefWidth="89.0" text="&lt;책 삭제&gt;">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <TextField fx:id="delBook" layoutX="33.0" layoutY="84.0" prefHeight="36.0" prefWidth="188.0" promptText="input bookNum" />
+      <Button layoutX="240.0" layoutY="84.0" mnemonicParsing="false" onAction="#delClick" prefHeight="36.0" prefWidth="55.0" text="삭제" />
+      <Button layoutX="231.0" layoutY="140.0" mnemonicParsing="false" onAction="#delBack" text="뒤로가기" />
    </children>
 </AnchorPane>
