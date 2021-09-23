@@ -51,15 +51,17 @@ public class FindidController implements Initializable{
 	public void findBut() {
 		MemberDTO dto = findid();
 		if(dto != null) {
-			String fId = dto.getId();
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("아이디: "+fId);
-			alert.show();
+//			String fId = dto.getId();
+//			Alert alert = new Alert(AlertType.INFORMATION);
+//			alert.setContentText("아이디: "+fId);
+//			alert.show();
+			DBCommon.getAlert("아이디: " + dto.getId());//DBCommon에 getAlert공통기능 사용
 		}else {
-			String fId = "존재하지 않는 회원정보 입니다. 다시 확인해 주세요";
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText(fId);
-			alert.show();
+//			String fId = "존재하지 않는 회원정보 입니다. 다시 확인해 주세요";
+//			Alert alert = new Alert(AlertType.INFORMATION);
+//			alert.setContentText(fId);
+//			alert.show();
+			DBCommon.getAlert("존재하지 않는 회원정보 입니다. 다시 확인해 주세요");  
 		}
 		
 	}

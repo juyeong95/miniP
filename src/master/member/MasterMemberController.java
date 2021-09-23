@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
 
 public class MasterMemberController implements Initializable{
 
@@ -16,5 +17,11 @@ public class MasterMemberController implements Initializable{
 	}
 	public void setRoot(Parent root) {
 		this.root = root;
+	}
+	
+	public void memberSearch() {}
+	public void memberBack() {
+		Stage s = (Stage)root.getScene().getWindow();
+		s.close();
 	}
 }

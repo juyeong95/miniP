@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
 import master.add.MasterAddMain;
 import master.del.MasterDelMain;
 import master.member.MasterMemberMain;
