@@ -24,6 +24,7 @@ public class MyServiceImpl implements MyService{
 		this.root = root;
 		
 	}
+	//로그인 버튼 구현
 
 	@Override
 	public void login() {
