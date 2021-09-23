@@ -5,16 +5,27 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
 	Parent root1;
+	
+	
+	
 	public void setRoot(Parent root1) {
 		this.root1 = root1;
 		
 	}
 	
 	public void bookSearch() {
+		TextField bookin = (TextField)root1.lookup("#bookIn");
+		
+		
+		
+		
+		
+		
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("list.fxml"));
 		Parent root2=null;
@@ -33,6 +44,9 @@ public class LoginController {
 		stage.show();
 	}
 	public void borrow() {
+		
+		
+		
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirm_Catalog.fxml"));
 		Parent root3=null;
