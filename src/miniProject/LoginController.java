@@ -2,6 +2,8 @@ package miniProject;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import dbcommon.DBCommon;
 import dbservice.DBserviceImpl;
@@ -11,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -82,8 +85,9 @@ public class LoginController {
 	}
 	public void rentBut() { //대여 버튼
 		BookDTO dto = db.loginCheck(ti);
-		BookDTO dto2 = db.loginCheck(bn);
-		MemDTO dto3 = db2.loginCheck(MyServiceImpl.idid);
+		//BookDTO dto2 = db.loginCheck(bn);
+		//MemDTO dto3 = db2.loginCheck(MyServiceImpl.idid);
+		
 		if(dto != null) { 
 			if(dto.getId() != null) {
 				Alert alert = new Alert(AlertType.INFORMATION);
@@ -107,8 +111,28 @@ public class LoginController {
 			
 		}
 	}
-	public void borrow() {
+	public ArrayList<BookDTO> cmbook() {
+		ArrayList<BookDTO> list = new ArrayList<BookDTO>();
 		
+		try {
+			PreparedStatement ps;
+			ps = DBCommon.con.prepareStatement("select * from book where id='"+MyServiceImpl.idid+"'");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				BookDTO dto = new BookDTO();
+				dto.setTitle(rs.getString("title"));
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public void borrow() { //대여목록 확인 버튼
+		MemDTO dto3 = db2.loginCheck(MyServiceImpl.idid);
+		ArrayList<BookDTO> list = cmbook();
 		
 		
 		Stage stage = new Stage();
@@ -120,6 +144,16 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Label lb = (Label)root3.lookup("#fxId");
+		lb.setText(MyServiceImpl.idid+" 님");
+		ComboBox<String> cmBook = (ComboBox<String>)root3.lookup("#cmbook");
+		
+		if(cmBook != null) {
+			for(int i = 0; i<list.size(); i++) {
+				cmBook.getItems().addAll(list.get(i).getTitle());
+			}
+		}
+		
 		Scene scene = new Scene(root3);
 		
 		LoginController ctl = loader.getController();
