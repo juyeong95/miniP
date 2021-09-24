@@ -23,6 +23,7 @@ import service.MyServiceImpl;
 
 public class LoginController {
 	Parent root1;
+	static Parent root3;
 	static String ti;
 	static String bn;
 	DBserviceImpl2 db = new DBserviceImpl2();
@@ -34,7 +35,7 @@ public class LoginController {
 		
 	}
 	
-	public void bookSearch() {
+	public void bookSearch() { // 도서 검색 버튼
 		
 		TextField bookin = (TextField)root1.lookup("#bookIn");
 		
@@ -137,7 +138,7 @@ public class LoginController {
 		
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirm_Catalog.fxml"));
-		Parent root3=null;
+		root3=null;
 		try {
 			root3 = loader.load();
 		} catch (IOException e) {
@@ -165,7 +166,12 @@ public class LoginController {
 	public void recomBook() {
 		
 	}
-	public void logOut() {
-		
+	public void logOut() { //로그아웃 버튼
+		Stage s = (Stage)root1.getScene().getWindow();
+		s.close();
+	}
+	public void back() { // 대여목록 확인 - 뒤로가기 버튼
+		Stage s = (Stage)root3.getScene().getWindow();
+		s.close();
 	}
 }
