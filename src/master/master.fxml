@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="179.0" prefWidth="307.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="master.MasterController">
    <children>
       <TextField fx:id="masterId" layoutX="35.0" layoutY="64.0" prefHeight="23.0" prefWidth="140.0" promptText="masterId" />
-      <PaswordField fx:id="masterPwd" layoutX="35.0" layoutY="101.0" prefHeight="23.0" prefWidth="140.0" promptText="masterPwd" />
+      <PasswordField fx:id="masterPwd" layoutX="35.0" layoutY="101.0" prefHeight="23.0" prefWidth="140.0" promptText="masterPwd" />
       <Label layoutX="61.0" layoutY="6.0" prefHeight="54.0" prefWidth="240.0" text="&lt;관리자 계정 로그인&gt;">
          <font>
             <Font size="18.0" />
