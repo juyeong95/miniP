@@ -4,17 +4,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dbcommon.DBCommon;
-import alert.alert;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import master.login.MasterLoginMain;
-import memdto.MemDTO;
 
 public class MasterController implements Initializable{
 	MasterLoginMain mlm;
