@@ -21,7 +21,6 @@ public class MasterController implements Initializable{
 
 	public void setRoot(Parent root) {
 		this.root = root;
-		
 	}
 	
 	@Override
