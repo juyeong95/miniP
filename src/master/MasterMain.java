@@ -2,6 +2,7 @@ package master;
 
 import java.io.IOException;
 
+import dbcommon.DBCommon;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,7 @@ public class MasterMain {
 		Stage masterLogin = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("master.fxml"));
 		Parent root = null;
+
 		try {
 			root = loader.load();
 		} catch (Exception e) {
