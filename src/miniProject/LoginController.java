@@ -1,23 +1,29 @@
 package miniProject;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 
+import dbcommon.DBCommon;
+import dbservice.DBserviceImpl;
 import dbservice.DBserviceImpl2;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import memdto.BookDTO;
+import memdto.MemDTO;
+import service.MyServiceImpl;
 
 public class LoginController {
 	Parent root1;
-	
+	static String ti;
+	static String bn;
 	DBserviceImpl2 db = new DBserviceImpl2();
-	
+	DBserviceImpl db2 = new DBserviceImpl();
 	
 	
 	public void setRoot(Parent root1) {
@@ -27,14 +33,13 @@ public class LoginController {
 	
 	public void bookSearch() {
 		
-TextField bookin = (TextField)root1.lookup("#bookIn");
+		TextField bookin = (TextField)root1.lookup("#bookIn");
 		
 		BookDTO dto = db.loginCheck(bookin.getText());
 		
 		
 		
 		if(dto != null) {
-			
 			
 			
 			Stage stage = new Stage();
@@ -54,7 +59,8 @@ TextField bookin = (TextField)root1.lookup("#bookIn");
 			lb1.setText(dto.getTitle());
 			lb12.setText(dto.getAuthor());
 			lb13.setText(dto.getPublish());
-			
+			ti = dto.getTitle();
+			bn=dto.getBookNum();
 			Scene scene = new Scene(root2);
 			
 			LoginController ctl = loader.getController();
@@ -73,6 +79,33 @@ TextField bookin = (TextField)root1.lookup("#bookIn");
 		
 		
 		
+	}
+	public void rentBut() { //대여 버튼
+		BookDTO dto = db.loginCheck(ti);
+		BookDTO dto2 = db.loginCheck(bn);
+		MemDTO dto3 = db2.loginCheck(MyServiceImpl.idid);
+		if(dto != null) { 
+			if(dto.getId() != null) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setContentText("\""+ti+"\""+" 은/는 현재 대여중입니다.");
+				alert.show();
+			}else {
+				try {
+				//DBCommon.setDBConnection();
+				PreparedStatement ps;
+				ps=DBCommon.con.prepareStatement("update book set ID='"+MyServiceImpl.idid+"' where BOOKNUM='"+bn+"'");
+					
+					ps.executeUpdate();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setContentText("대여 완료");
+				alert.show();
+			}
+			
+		}
 	}
 	public void borrow() {
 		

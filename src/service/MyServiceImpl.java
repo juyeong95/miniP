@@ -14,7 +14,7 @@ import memdto.MemDTO;
 import miniProject.LoginController;
 
 public class MyServiceImpl implements MyService{
-	
+	public static String idid;
 	Parent root;
 	
 	DBserviceImpl db = new DBserviceImpl();
@@ -33,7 +33,7 @@ public class MyServiceImpl implements MyService{
 		TextField txpw = (TextField)root.lookup("#pwd");
 		
 		MemDTO dto = db.loginCheck(txid.getText());
-		System.out.println(dto);
+		
 		
 		
 		if(dto != null) {
@@ -47,6 +47,7 @@ public class MyServiceImpl implements MyService{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				idid=dto.getId();
 				Scene scene = new Scene(root1);
 				
 				LoginController ctl = loader.getController();
