@@ -21,7 +21,7 @@ public class MasterAddServiceImpl implements MasterAddService{
 	
 	@Override
 	public int BookAdd(MasterBookDTO dto) {  //책추가 dto
-		String sql =  "insert into book values(?,?,?,?)";
+		String sql =  "insert into book(booknum,title,author,publisher) values(?,?,?,?)";
 	
 			try {
 				DBCommon.setDBConnection();

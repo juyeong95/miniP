@@ -4,7 +4,14 @@ public class BookDTO {
 	private String title;
 	private String author;
 	private String publish;
+	private String bookNum;
 	
+	public String getBookNum() {
+		return bookNum;
+	}
+	public void setBookNum(String bookNum) {
+		this.bookNum = bookNum;
+	}
 	public String getTitle() {
 		return title;
 	}
