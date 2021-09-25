@@ -9,12 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import memdto.MemDTO;
 import miniProject.LoginController;
 
 public class MyServiceImpl implements MyService{
-	
+	public static String idid;
 	Parent root;
 	
 	DBserviceImpl db = new DBserviceImpl();
@@ -30,10 +31,11 @@ public class MyServiceImpl implements MyService{
 	public void login() {
 		
 		TextField txid = (TextField)root.lookup("#id");
-		TextField txpw = (TextField)root.lookup("#pwd");
+		PasswordField txpw = (PasswordField)root.lookup("#pwd");
+		
 		
 		MemDTO dto = db.loginCheck(txid.getText());
-		System.out.println(dto);
+		
 		
 		
 		if(dto != null) {
@@ -47,10 +49,13 @@ public class MyServiceImpl implements MyService{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				idid=dto.getId();
 				Scene scene = new Scene(root1);
 				
 				LoginController ctl = loader.getController();
 				ctl.setRoot(root1);
+				
+				txpw.clear();
 				
 				stage.setScene(scene);
 				stage.show();
@@ -60,10 +65,13 @@ public class MyServiceImpl implements MyService{
 				if(txpw.getText().isEmpty()) {
 					Alert alert = new Alert(AlertType.ERROR);
 					alert.setContentText("비밀번호를 입력해주세요.");
+					txpw.requestFocus();
 					alert.show();
 				}else {
 					Alert alert = new Alert(AlertType.ERROR);
 					alert.setContentText("비밀번호가 틀렸습니다.");
+					txpw.requestFocus();
+					txpw.clear();
 					alert.show();
 				}
 			}
@@ -71,10 +79,13 @@ public class MyServiceImpl implements MyService{
 			if(txid.getText().isEmpty()) {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setContentText("아이디를 입력해주세요.");
+				txid.requestFocus();
 				alert.show();
 			}else {
 				Alert alert = new Alert(AlertType.ERROR);
 				alert.setContentText("등록되지 않은 아이디 입니다.");
+				txid.requestFocus();
+				txpw.clear();
 				alert.show();
 			}
 			

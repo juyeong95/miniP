@@ -31,6 +31,7 @@ public class MasterAddServiceImpl implements MasterAddService{
 				ps.setString(2, dto.getTitle());
 				ps.setString(3, dto.getAuthor());
 				ps.setString(4, dto.getPublisher());
+			
 				int result = ps.executeUpdate();
 				
 			} catch (SQLException e) {

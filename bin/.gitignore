@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 /bookservice/
-/dbservice/
-/master/
-/membership/
-/memdto/
+=======
 /miniProject/
-/seek/
+>>>>>>> juyeong
+/dbservice/
+/memdto/
+/master/
 /service/
+<<<<<<< HEAD
 /dbcommon/
+=======
+>>>>>>> juyeong
