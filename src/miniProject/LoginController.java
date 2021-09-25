@@ -169,6 +169,9 @@ public class LoginController {
 	public void logOut() { //로그아웃 버튼
 		Stage s = (Stage)root1.getScene().getWindow();
 		s.close();
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setContentText("이용해주셔서 감사합니다.");
+		alert.show();
 	}
 	public void back() { // 대여목록 확인 - 뒤로가기 버튼
 		Stage s = (Stage)root3.getScene().getWindow();
