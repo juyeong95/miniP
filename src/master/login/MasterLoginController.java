@@ -3,6 +3,7 @@ package master.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dbcommon.DBCommon;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
@@ -17,6 +18,7 @@ public class MasterLoginController implements Initializable{
 	MasterAddMain mam;
 	MasterMemberMain mem;
 	Parent root;
+	DBCommon db = new DBCommon();
 	public void setRoot(Parent root) {
 		this.root = root;
 	}
@@ -42,7 +44,7 @@ public class MasterLoginController implements Initializable{
 	}
 	
 	public void back() { //뒤로가기
-		
+		db.closeStage(root);
 	}
 	
 
