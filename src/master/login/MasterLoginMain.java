@@ -18,6 +18,8 @@ public class MasterLoginMain {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		MasterLoginController mlctl = loader.getController();
+		mlctl.setRoot(root);
 		masterlogin.setScene(new Scene(root));
 		masterlogin.show();
 	}
