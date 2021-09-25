@@ -22,7 +22,7 @@ public class MasterAddServiceImpl implements MasterAddService{
 	@Override
 	public int BookAdd(MasterBookDTO dto) {  //책추가 dto
 		String sql =  "insert into book(booknum,title,author,publisher) values(?,?,?,?)";
-	
+		
 			try {
 				DBCommon.setDBConnection();
 				PreparedStatement ps;
@@ -32,7 +32,8 @@ public class MasterAddServiceImpl implements MasterAddService{
 				ps.setString(3, dto.getAuthor());
 				ps.setString(4, dto.getPublisher());
 			
-				int result = ps.executeUpdate();
+				result = ps.executeUpdate();
+				
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

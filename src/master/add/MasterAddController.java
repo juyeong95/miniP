@@ -31,10 +31,12 @@ public class MasterAddController implements Initializable{
 	
 	public void BookAdd() {  //책추가
 		result = mas.BookAdd(mas.BookAdd1());
+		
+		System.out.println();
 		if(result == 1) {
-			DBCommon.getAlert("저장 실패");
-		}else {
 			DBCommon.getAlert("저장 성공!!");
+		}else {
+			DBCommon.getAlert("저장 실패!!");
 		}
 		
 	} 
