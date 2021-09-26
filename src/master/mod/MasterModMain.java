@@ -20,6 +20,7 @@ public class MasterModMain {
 		}
 		MasterModController mmcl = loader.getController();
 		mmcl.setRoot(root);
+		
 		mod.setScene(new Scene(root));
 		mod.show();
 	}
