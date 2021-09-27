@@ -1,5 +1,10 @@
+/bookservice/
+/dbcommon/
+/dbservice/
+/master/
 /membership/
 /memdto/
 /miniProject/
 /seek/
 /service/
+/sql/
