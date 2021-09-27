@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import memdto.BookDTO;
@@ -29,7 +30,9 @@ import service.MyServiceImpl;
 
 public class LoginController {
 	Parent root1;
+	static Parent root4;
 	static Parent root3;
+	static Parent root2;
 	static String ti;
 	static String bn;
 	DBserviceImpl2 db = new DBserviceImpl2();
@@ -50,39 +53,33 @@ public class LoginController {
 		
 		TextField bookin = (TextField)root1.lookup("#bookIn");
 		
-		BookDTO dto = db.loginCheck(bookin.getText());
-		
+		ArrayList<BookDTO> dto = db.loginCheck2(bookin.getText());
+		ArrayList<BookDTO> yn = db.yn(bookin.getText()); //대여 가능 불가능
 		
 		
 		if(dto != null) {
+		
 			
-			
-			Stage stage = new Stage();
-			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("list.fxml"));
-			Parent root2=null;
+			Stage st = new Stage();
+			FXMLLoader lo = new FXMLLoader(getClass().getResource("slist.fxml"));
+			root4=null;
 			try {
-				root2 = loader.load();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				root4=lo.load();
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			Label lb1 = (Label)root2.lookup("#brLabel");
-			Label lb12 = (Label)root2.lookup("#brLabel2");
-			Label lb13 = (Label)root2.lookup("#brLabel3");
+			ListView lv = (ListView)root4.lookup("#bllist");
+			ListView lvyn = (ListView)root4.lookup("#blyn");
+			for(int i=0; i<dto.size();i++) {
+			lv.getItems().addAll(dto.get(i).getTitle());
+			lvyn.getItems().addAll(yn.get(i).getId());
+			}
+			Scene sc = new Scene(root4);
+			LoginController c = lo.getController();
+			c.setRoot(root4);
 			
-			lb1.setText(dto.getTitle());
-			lb12.setText(dto.getAuthor());
-			lb13.setText(dto.getPublish());
-			ti = dto.getTitle();
-			bn=dto.getBookNum();
-			Scene scene = new Scene(root2);
-			
-			LoginController ctl = loader.getController();
-			ctl.setRoot(root2);
-			
-			stage.setScene(scene);
-			stage.show();
+			st.setScene(sc);
+			st.show();
 			
 		} else {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -95,10 +92,50 @@ public class LoginController {
 		
 		
 	}
+	public void blinfor() { //검색창 도서 정보
+		ListView lv = (ListView)root4.lookup("#bllist");
+		String strItem = (String) lv.getSelectionModel().getSelectedItem();
+		BookDTO dto = db.loginCheck(strItem);
+		if(dto != null) {
+		Stage stage = new Stage();
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("list.fxml"));
+		root2=null;
+		try {
+			root2 = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Label lb1 = (Label)root2.lookup("#brLabel");
+		Label lb12 = (Label)root2.lookup("#brLabel2");
+		Label lb13 = (Label)root2.lookup("#brLabel3");
+		
+		lb1.setText(dto.getTitle());
+		lb12.setText(dto.getAuthor());
+		lb13.setText(dto.getPublish());
+		ti = dto.getTitle();
+		bn=dto.getBookNum();
+		Scene scene = new Scene(root2);
+		
+		LoginController ctl = loader.getController();
+		ctl.setRoot(root2);
+		
+		stage.setScene(scene);
+		stage.show();
+		}else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("도서를 선택해주세요.");
+			alert.show();
+		}
+	}
+	public void blcancle() { //검색창 취소
+		Stage s = (Stage)root4.getScene().getWindow();
+		s.close();
+	}
 	public void rentBut() { //대여 버튼
 		BookDTO dto = db.loginCheck(ti);
-		//BookDTO dto2 = db.loginCheck(bn);
-		//MemDTO dto3 = db2.loginCheck(MyServiceImpl.idid);
+
 		
 		if(dto != null) { 
 			if(dto.getId() != null) {
