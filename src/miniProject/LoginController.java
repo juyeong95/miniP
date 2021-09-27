@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import memdto.BookDTO;
@@ -29,7 +30,9 @@ import service.MyServiceImpl;
 
 public class LoginController {
 	Parent root1;
+	static Parent root4;
 	static Parent root3;
+	static Parent root2;
 	static String ti;
 	static String bn;
 	DBserviceImpl2 db = new DBserviceImpl2();
@@ -50,18 +53,26 @@ public class LoginController {
 		
 		TextField bookin = (TextField)root1.lookup("#bookIn");
 		
+<<<<<<< HEAD
 		BookDTO dto = db.loginCheck(bookin.getText());  //텍스트필드 값에 입력한 값을 넘겨준 후 dto값을 리턴받는다.
 		
 		
 		
 		if(dto != null) { //dto값이 정상적으로 받아졌을 경우
+=======
+		ArrayList<BookDTO> dto = db.loginCheck2(bookin.getText());
+		ArrayList<BookDTO> yn = db.yn(bookin.getText()); //대여 가능 불가능
+		
+		
+		if(dto != null) {
+		
+>>>>>>> 55624db76ec95dcbadc6de32b08f240e5988cb53
 			
-			
-			Stage stage = new Stage();
-			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("list.fxml"));
-			Parent root2=null;
+			Stage st = new Stage();
+			FXMLLoader lo = new FXMLLoader(getClass().getResource("slist.fxml"));
+			root4=null;
 			try {
+<<<<<<< HEAD
 				root2 = loader.load(); //root2는 책을 검색했을때 나오는 리스트들을 보여주는 list.fxml을 받는다.
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -81,6 +92,24 @@ public class LoginController {
 			
 			stage.setScene(scene);
 			stage.show(); //root2에 있는 내용을 정상적으로 화면에 띄운다.
+=======
+				root4=lo.load();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			ListView lv = (ListView)root4.lookup("#bllist");
+			ListView lvyn = (ListView)root4.lookup("#blyn");
+			for(int i=0; i<dto.size();i++) {
+			lv.getItems().addAll(dto.get(i).getTitle());
+			lvyn.getItems().addAll(yn.get(i).getId());
+			}
+			Scene sc = new Scene(root4);
+			LoginController c = lo.getController();
+			c.setRoot(root4);
+			
+			st.setScene(sc);
+			st.show();
+>>>>>>> 55624db76ec95dcbadc6de32b08f240e5988cb53
 			
 		} else { //책 제목이 데이터베이스에 저장돼있지 않으므로 dto값을 받아오지 못했을때 실행
 			DBCommon.getAlert("책 제목을 확인하세요");
@@ -91,7 +120,49 @@ public class LoginController {
 		
 		
 	}
+	public void blinfor() { //검색창 도서 정보
+		ListView lv = (ListView)root4.lookup("#bllist");
+		String strItem = (String) lv.getSelectionModel().getSelectedItem();
+		BookDTO dto = db.loginCheck(strItem);
+		if(dto != null) {
+		Stage stage = new Stage();
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("list.fxml"));
+		root2=null;
+		try {
+			root2 = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Label lb1 = (Label)root2.lookup("#brLabel");
+		Label lb12 = (Label)root2.lookup("#brLabel2");
+		Label lb13 = (Label)root2.lookup("#brLabel3");
+		
+		lb1.setText(dto.getTitle());
+		lb12.setText(dto.getAuthor());
+		lb13.setText(dto.getPublish());
+		ti = dto.getTitle();
+		bn=dto.getBookNum();
+		Scene scene = new Scene(root2);
+		
+		LoginController ctl = loader.getController();
+		ctl.setRoot(root2);
+		
+		stage.setScene(scene);
+		stage.show();
+		}else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("도서를 선택해주세요.");
+			alert.show();
+		}
+	}
+	public void blcancle() { //검색창 취소
+		Stage s = (Stage)root4.getScene().getWindow();
+		s.close();
+	}
 	public void rentBut() { //대여 버튼
+<<<<<<< HEAD
 		BookDTO dto = db.loginCheck(ti); 
 		//전역변수로 설정해놓은 ti(책 제목을 검색했을때 데이터베이스에서 가져온 정보를 입력한 책제목)을 통해 dto값을 새로 가져온다.
 		//도서 검색했을때 입력한 책제목 값과 동일
@@ -100,6 +171,17 @@ public class LoginController {
 			if(dto.getId() != null) { //dto에 저장된 id값이 null이라면 아직 대여되지 않은 책이므로 실행
 				DBCommon.getAlert("\""+ti+"\""+" 은/는 현재 대여중입니다.");
 			}else { //dto에 저장된 id값이 존재한다면 실행
+=======
+		BookDTO dto = db.loginCheck(ti);
+
+		
+		if(dto != null) { 
+			if(dto.getId() != null) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setContentText("\""+ti+"\""+" 은/는 현재 대여중입니다.");
+				alert.show();
+			}else {
+>>>>>>> 55624db76ec95dcbadc6de32b08f240e5988cb53
 				try {
 				//DBCommon.setDBConnection();
 				PreparedStatement ps;

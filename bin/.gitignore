@@ -1,5 +1,17 @@
+/bookservice/
+/dbcommon/
+/dbservice/
+/master/
+/membership/
+/memdto/
 /miniProject/
+<<<<<<< HEAD
 /service/
 /seek/
 /membership/
 /master/
+=======
+/seek/
+/service/
+/sql/
+>>>>>>> 55624db76ec95dcbadc6de32b08f240e5988cb53
