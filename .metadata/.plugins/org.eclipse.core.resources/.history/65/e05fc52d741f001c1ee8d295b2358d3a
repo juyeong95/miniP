@@ -1,0 +1,9 @@
+package miniProject;
+
+public class Close {
+
+	public void getclose() {
+		System.exit(0);
+	}
+
+}

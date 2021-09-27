@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+org.eclipse.core.variables.valueVariables=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<valueVariables>\r\n    <valueVariable description\="JavaFXLib" name\="JavaFXLib" readOnly\="false" value\="C\:\\JAVAFX\\javafx-sdk-11.0.2\\lib"/>\r\n    <valueVariable description\="Javafx.controls" name\="javafxCompControls" readOnly\="false" value\="--module-path ${JavaFXLib} --add-modules\=javafx.controls"/>\r\n</valueVariables>\r\n
