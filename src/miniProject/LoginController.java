@@ -249,4 +249,21 @@ public class LoginController {
 		s.close();
 
 	}
+	
+	public void Return() {
+
+		ComboBox<String> cmBook1 = (ComboBox<String>)root3.lookup("#cmbook");
+		String s = cmBook1.getValue();
+		try {
+			//DBCommon.setDBConnection();
+			PreparedStatement ps;
+			ps=DBCommon.con.prepareStatement("update book set ID=null where title = '"+s+"'");
+				ps.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setContentText("반납 되었습니다.");
+			alert.show();
+	}
 }
