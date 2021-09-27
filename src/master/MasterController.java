@@ -32,14 +32,14 @@ public class MasterController implements Initializable{
 		TextField id = (TextField) root.lookup("#masterId");//텍스트필드의 입력값 불러오기
 		PasswordField pwd = (PasswordField) root.lookup("#masterPwd");
 
-		if(id.getText().equals("master")) {	//마스터 로그인을 위한 아이디와 비밀번호를 미리 회원등록하고 "master"로 설정
-			if(pwd.getText().equals("master")) {
-				MasterMain mm = new MasterMain();
-				//id와 pwd가 맞았을 경우 	
-			    mlm.getFrom();
-			    db.getAlert("Welcome Sir.");
-			    db.closeStage(root);
-				}else db.getAlert("login fail");
+		if(id.getText().equals("master") && pwd.getText().equals("master")) {
+			//마스터 로그인을 위한 아이디와 비밀번호를 미리 회원등록하고 "master"로 설정
+			//id와 pwd가 맞았을 경우 
+			MasterMain mm = new MasterMain();
+			
+		    mlm.getFrom(); //마스터 로그인 창
+		    db.getAlert("Welcome Sir.");
+		    db.closeStage(root);
 		}else db.getAlert("login fail");
 	}
 	

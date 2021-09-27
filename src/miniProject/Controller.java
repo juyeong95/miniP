@@ -32,17 +32,17 @@ public class Controller implements Initializable{
 			sm = new SeekMain();
 		}
 		public void loginBut() {
-			ms.login();
+			ms.login(); //로그인버튼 클릭
 
 		}
 		public void seekBut() {
-			sm.OpenSeek();
+			sm.OpenSeek(); //회원찾기 클릭
 		}
 		public void memberBut() {
-			msm.OpenMembership(); //회원가입 완료
+			msm.OpenMembership(); //회원가입 버튼 클릭
 		}
 		public void masterBut() {
-			mm.getMasterLogin();
+			mm.getMasterLogin(); //마스터버튼 클릭
 		}
 		
 	

@@ -42,7 +42,7 @@ public class LoginController {
 
 	
 	public void setRoot(Parent root1) {
-		this.root1 = root1;
+		this.root1 = root1; //MyServiceImpl에서 받아온 root1 = login.fxml (로그인 성공시 화면)
 		
 	}
 	
@@ -50,11 +50,11 @@ public class LoginController {
 		
 		TextField bookin = (TextField)root1.lookup("#bookIn");
 		
-		BookDTO dto = db.loginCheck(bookin.getText());
+		BookDTO dto = db.loginCheck(bookin.getText());  //텍스트필드 값에 입력한 값을 넘겨준 후 dto값을 리턴받는다.
 		
 		
 		
-		if(dto != null) {
+		if(dto != null) { //dto값이 정상적으로 받아졌을 경우
 			
 			
 			Stage stage = new Stage();
@@ -62,7 +62,7 @@ public class LoginController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("list.fxml"));
 			Parent root2=null;
 			try {
-				root2 = loader.load();
+				root2 = loader.load(); //root2는 책을 검색했을때 나오는 리스트들을 보여주는 list.fxml을 받는다.
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -71,23 +71,19 @@ public class LoginController {
 			Label lb12 = (Label)root2.lookup("#brLabel2");
 			Label lb13 = (Label)root2.lookup("#brLabel3");
 			
-			lb1.setText(dto.getTitle());
-			lb12.setText(dto.getAuthor());
-			lb13.setText(dto.getPublish());
-			ti = dto.getTitle();
-			bn=dto.getBookNum();
+			lb1.setText(dto.getTitle()); //dto값을 정상적으로 받아왔으므로 라벨값을 dto.gettitle을 통해 제목을 받아온다.
+			lb12.setText(dto.getAuthor());//위와 같이 받아온다.
+			lb13.setText(dto.getPublish());//위와 같이 받아온다.
+			ti = dto.getTitle(); //전역변수로 설정한 String ti에 dto에 저장돼있는 책제목값을 받아온다.
+			bn=dto.getBookNum(); //전역변수로 설정한 String bn에 dto에 저장돼있는 책넘버값을 받아온다.
 			Scene scene = new Scene(root2);
 			
-			LoginController ctl = loader.getController();
-			ctl.setRoot(root2);
 			
 			stage.setScene(scene);
-			stage.show();
+			stage.show(); //root2에 있는 내용을 정상적으로 화면에 띄운다.
 			
-		} else {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setContentText("책 제목을 확인하세요.");
-			alert.show();
+		} else { //책 제목이 데이터베이스에 저장돼있지 않으므로 dto값을 받아오지 못했을때 실행
+			DBCommon.getAlert("책 제목을 확인하세요");
 		}
 		
 		
@@ -96,75 +92,76 @@ public class LoginController {
 		
 	}
 	public void rentBut() { //대여 버튼
-		BookDTO dto = db.loginCheck(ti);
-		//BookDTO dto2 = db.loginCheck(bn);
-		//MemDTO dto3 = db2.loginCheck(MyServiceImpl.idid);
+		BookDTO dto = db.loginCheck(ti); 
+		//전역변수로 설정해놓은 ti(책 제목을 검색했을때 데이터베이스에서 가져온 정보를 입력한 책제목)을 통해 dto값을 새로 가져온다.
+		//도서 검색했을때 입력한 책제목 값과 동일
 		
-		if(dto != null) { 
-			if(dto.getId() != null) {
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setContentText("\""+ti+"\""+" 은/는 현재 대여중입니다.");
-				alert.show();
-			}else {
+
+			if(dto.getId() != null) { //dto에 저장된 id값이 null이라면 아직 대여되지 않은 책이므로 실행
+				DBCommon.getAlert("\""+ti+"\""+" 은/는 현재 대여중입니다.");
+			}else { //dto에 저장된 id값이 존재한다면 실행
 				try {
 				//DBCommon.setDBConnection();
 				PreparedStatement ps;
 				ps=DBCommon.con.prepareStatement("update book set ID='"+MyServiceImpl.idid+"' where BOOKNUM='"+bn+"'");
-					
+				//전 단계에서 bn값(책 넘버값)을 데이터베이스에서 받아왔으므로 where절에 bn값을 넣고 리스트를 가져온 후 
+				//처음 로그인할때 전역변수로 설정한 MyServiceImpl.idid(id값)을 id에 넣는다.
 					ps.executeUpdate();
 					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setContentText("대여 완료");
-				alert.show();
+				DBCommon.getAlert("대여 완료");
 			}
 			
-		}
+		
 	}
-	public ArrayList<BookDTO> cmbook() {
+	public ArrayList<BookDTO> cmbook() { 
+		
 		ArrayList<BookDTO> list = new ArrayList<BookDTO>();
 		
 		try {
 			PreparedStatement ps;
 			ps = DBCommon.con.prepareStatement("select * from book where id='"+MyServiceImpl.idid+"'");
+			//처음 로그인했을때 받은 전역변수 MyServiceImpl.idid를 통해 데이터베이스에 저장된 행을 불러온다.
+			//이때 book테이블에 있는 내가 로그인한 id값에 저장된 모든 값을 불러온다.
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				BookDTO dto = new BookDTO();
-				dto.setTitle(rs.getString("title"));
-				list.add(dto);
+				dto.setTitle(rs.getString("title")); 
+				//dto를 새로 선언한 후 rs.getString("title")을 통해 내가 로그인한 id값이 저장된 title값을 dto에 저장한다
+				list.add(dto); //ArrayList에 dto값을 추가한다. rs.next()를 while문에 넣었으므로 다음값이 없을때까지 실행
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
+		return list; //dto값을 추가한 ArrayList를 반환한다.
 	}
 	
 	public void borrow() { //대여목록 확인 버튼
 		MemDTO dto3 = db2.loginCheck(MyServiceImpl.idid);
-		ArrayList<BookDTO> list = cmbook();
+		ArrayList<BookDTO> list = cmbook(); //cmbook()에서 반환된 dto값을 추가한 ArrayList를 새로운 ArrayList에 저장
 		
 		
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Confirm_Catalog.fxml"));
 		root3=null;
 		try {
-			root3 = loader.load();
+			root3 = loader.load(); //root3에 대여목록을 확인하는 Confirm_Catalog.fxml를 넣는다.
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Label lb = (Label)root3.lookup("#fxId");
-		lb.setText(MyServiceImpl.idid+" 님");
+		Label lb = (Label)root3.lookup("#fxId"); //root3를 통해 라벨값을 가져온 후
+		lb.setText(MyServiceImpl.idid+" 님"); //라벨의 텍스트를 처음 로그인했을때 받아온 id값으로 설정
 		ComboBox<String> cmBook = (ComboBox<String>)root3.lookup("#cmbook");
-		
-		if(cmBook != null) {
-			for(int i = 0; i<list.size(); i++) {
-				cmBook.getItems().addAll(list.get(i).getTitle());
+		//root3에 있는 콤보박스를 선언한다
+	
+			for(int i = 0; i<list.size(); i++) { //반복문을 통해 list에 저장된 값만큼 반복실행
+				cmBook.getItems().addAll(list.get(i).getTitle()); //cmbook에 i번째에 있는 dto의 책 제목값을 저장한다.
 			}
-		}
+		
 		
 		Scene scene = new Scene(root3);
 		
@@ -174,16 +171,16 @@ public class LoginController {
 		stage.show();
 	}
 	public void recomBook() {
-		Random rand = new Random();
+		Random rand = new Random(); //랜덤함수 선언
 		
 		
-		String a[] = new String[15];
-		for(int i=0;i<15;i++) {
-			int ran4 = rand.nextInt(15)+1;
+		String a[] = new String[60]; //배열의 크기를 책의 수 만큼 설정한다.
+		for(int i=0;i<60;i++) { //랜덤값을 int로 받아 string으로 변환하고 배열값에 배열크기만큼 저장한다.
+			int ran4 = rand.nextInt(60)+1;
 			String ra4 = ran4 + "";
 			a[i] = ra4;
 			
-			for(int j=0; j<i; j++) {
+			for(int j=0; j<i; j++) { //중복값 제거
 				if(a[i].equals(a[j])) {
 					i--;
 				}
@@ -191,7 +188,7 @@ public class LoginController {
 			
 		}
 		
-		BookDTO dto = db.bookRand(a[0]);
+		BookDTO dto = db.bookRand(a[0]); //배열이 랜덤으로 저장됐으니 그중 3개만 뽑아서 데이터베이스에서 값을 dto로 가져온다
 		BookDTO dto1 = db.bookRand(a[1]);
 		BookDTO dto2 = db.bookRand(a[2]);
 		
@@ -199,11 +196,13 @@ public class LoginController {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("rand.fxml"));
 		Parent root4=null;
 		try {
-			root4 = loader.load();
+			root4 = loader.load(); //root4에 이달의 추천도서를 클릭했을때 나오는 rand.fxml을 넣는다.
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//라벨의 값을 dto,dto1,dto2에 저장된 값으로 변경한다(책제목,저자,출판사)
 		Label book1n = (Label)root4.lookup("#book1N");
 		book1n.setText(dto.getTitle());
 		Label book1a = (Label)root4.lookup("#book1A");
@@ -238,32 +237,27 @@ public class LoginController {
 
 
 	public void logOut() { //로그아웃 버튼
-		Stage s = (Stage)root1.getScene().getWindow();
-		s.close();
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setContentText("이용해주셔서 감사합니다.");
-		alert.show();
+		DBCommon.closeStage(root1);
+		DBCommon.getAlert("이용해 주셔서 감사합니다.");
 	}
 	public void back() { // 대여목록 확인 - 뒤로가기 버튼
-		Stage s = (Stage)root3.getScene().getWindow();
-		s.close();
+		DBCommon.closeStage(root3);
 
 	}
 	
-	public void Return() {
+	public void Return() { //반납하기 버튼
 
-		ComboBox<String> cmBook1 = (ComboBox<String>)root3.lookup("#cmbook");
-		String s = cmBook1.getValue();
+		ComboBox<String> cmBook1 = (ComboBox<String>)root3.lookup("#cmbook"); //root3에 있는 콤보박스값을 선언
+		String s = cmBook1.getValue(); //콤보박스에 있는 항목을 선택했을때 값을 String s로 받아온다
 		try {
 			//DBCommon.setDBConnection();
 			PreparedStatement ps;
 			ps=DBCommon.con.prepareStatement("update book set ID=null where title = '"+s+"'");
+			//String s에 받아온 값을 where절에 넣고 id값을 null로 변경
 				ps.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setContentText("반납 되었습니다.");
-			alert.show();
+		DBCommon.getAlert("반납 되었습니다.");
 	}
 }

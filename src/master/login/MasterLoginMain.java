@@ -19,7 +19,7 @@ public class MasterLoginMain {
 			e.printStackTrace();
 		}
 
-		MasterLoginController mcl = loader.getController();
+		MasterLoginController mcl = loader.getController(); //masterlogincontroller로 root값 전달
 		mcl.setRoot(root);
 	
 		masterlogin.setScene(new Scene(root));

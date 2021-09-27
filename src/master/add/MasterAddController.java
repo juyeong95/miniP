@@ -21,7 +21,7 @@ public class MasterAddController implements Initializable{
 	
 	public void setRoot(Parent root) {
 		this.root = root;
-		mas.setRoot(root);
+		mas.setRoot(root); //책 추가 버튼 누를 시 초기 화면을 root로 받고 MasterAddService에 root값 전달
 	}
 
 	@Override
@@ -29,11 +29,11 @@ public class MasterAddController implements Initializable{
 		mas = new MasterAddServiceImpl();
 	}
 	
-	public void BookAdd() {  //책추가
-		result = mas.BookAdd(mas.BookAdd1());
+	public void BookAdd() {  //등록 버튼
+		result = mas.BookAdd(mas.BookAdd1()); //bookadd에서 리턴받은 전달값을 새로운 result에 넣는다
 		
-		System.out.println();
-		if(result == 1) {
+		
+		if(result == 1) { //성공 시 result = 1 실패 시 result = 0
 			DBCommon.getAlert("저장 성공!!");
 		}else {
 			DBCommon.getAlert("저장 실패!!");
@@ -42,7 +42,6 @@ public class MasterAddController implements Initializable{
 	} 
 	
 	public void Bookback() { //뒤로가기
-		Stage s = (Stage)root.getScene().getWindow();
-		s.close();
+		DBCommon.closeStage(root);
 	}
 }

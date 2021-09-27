@@ -7,5 +7,6 @@ public interface MasterDelService {
 
 	public void setRoot(Parent root);
 	public MasterBookDTO getDelList(String bookNum);
-	
+	public void masterDel();
+	public void identify();
 }

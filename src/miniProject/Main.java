@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Main extends Application{
 
 	@Override
-	public void start(Stage arg0) throws Exception {
+	public void start(Stage arg0) throws Exception { //첫번째 로그인 화면
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("event.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root);

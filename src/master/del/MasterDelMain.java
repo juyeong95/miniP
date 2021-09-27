@@ -15,11 +15,11 @@ public class MasterDelMain {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("del.fxml"));
 		Parent root = null;
 		try {
-			root = loader.load();
+			root = loader.load(); //삭제버튼 클릭 시 초기화면을 (del.fxml) root에 전달
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		MasterDelController mdcl = loader.getController();
+		MasterDelController mdcl = loader.getController(); //root값을 MasterDelController에 전달
 		mdcl.setRoot(root);
 		del.setScene(new Scene(root));
 		del.show();
