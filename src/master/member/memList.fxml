@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="168.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.member.MasterMemeberController">
+<AnchorPane prefHeight="168.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.member.MasterMemberController">
    <children>
       <Button fx:id="del" layoutX="28.0" layoutY="120.0" mnemonicParsing="false" onAction="#del" prefHeight="34.0" prefWidth="84.0" text="삭제" />
       <Button fx:id="mod" layoutX="150.0" layoutY="120.0" mnemonicParsing="false" onAction="#mod" prefHeight="34.0" prefWidth="84.0" text="수정" />
@@ -35,8 +35,8 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <ComboBox layoutX="238.0" layoutY="48.0" prefWidth="150.0" />
-      <Label layoutX="292.0" layoutY="20.0" text="Label">
+      <ComboBox fx:id="cmid" layoutX="238.0" layoutY="48.0" prefWidth="150.0" promptText="대여 도서 목록" />
+      <Label fx:id="lbbook" layoutX="260.0" layoutY="20.0" text="Label">
          <font>
             <Font size="18.0" />
          </font>
