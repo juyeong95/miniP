@@ -15,7 +15,8 @@ public class Main extends Application{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("event.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root);
-		
+		scene.getStylesheets().add(getClass().getResource("style.css").toString());
+		arg0.setTitle("도서관리 프로그램");
 		Controller ctl = loader.getController();
 		ctl.setRoot(root);
 		

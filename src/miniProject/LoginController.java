@@ -117,6 +117,7 @@ public class LoginController {
       ti = dto.getTitle();
       bn=dto.getBookNum();
       Scene scene = new Scene(root2);
+      scene.getStylesheets().add(getClass().getResource("list.css").toString());
       
       LoginController ctl = loader.getController();
       ctl.setRoot(root2);
@@ -210,7 +211,7 @@ public class LoginController {
       }
       
       Scene scene = new Scene(root3);
-      
+      scene.getStylesheets().add(getClass().getResource("confirm.css").toString());
       
       
       stage.setScene(scene);
@@ -271,7 +272,7 @@ public class LoginController {
 	      book3p.setText(dto2.getPublish());
 	      
 	      Scene scene = new Scene(root4);
-	      
+	      scene.getStylesheets().add(getClass().getResource("rand.css").toString());
 	      
 	      
 	      stage.setScene(scene);

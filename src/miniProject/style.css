@@ -1,0 +1,17 @@
+.root{
+	 -fx-background-image: url("lib.png");
+}
+
+.button {
+    -fx-background-color: linear-gradient( #f0f8ff,  #faebd7);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+
+#add{
+	-fx-background-image: url("lib2.png");
+}

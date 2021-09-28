@@ -6,39 +6,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="168.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.member.MasterMemberController">
+<AnchorPane prefHeight="249.0" prefWidth="597.0" style="-fx-background-color: #708090;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.member.MasterMemberController">
    <children>
-      <Button fx:id="del" layoutX="28.0" layoutY="120.0" mnemonicParsing="false" onAction="#del" prefHeight="34.0" prefWidth="84.0" text="삭제" />
-      <Button fx:id="mod" layoutX="150.0" layoutY="120.0" mnemonicParsing="false" onAction="#mod" prefHeight="34.0" prefWidth="84.0" text="수정" />
-      <Button fx:id="back" layoutX="283.0" layoutY="120.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="84.0" text="뒤로" />
-      <Label fx:id="brLabel" layoutX="162.0" layoutY="20.0" prefHeight="20.0" prefWidth="91.0" text="Label">
+      <Button fx:id="del" layoutX="110.0" layoutY="182.0" mnemonicParsing="false" onAction="#del" prefHeight="34.0" prefWidth="91.0" text="삭제">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
+      <Button fx:id="mod" layoutX="241.0" layoutY="182.0" mnemonicParsing="false" onAction="#mod" prefHeight="34.0" prefWidth="91.0" text="수정">
+         <font>
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
+      <Button fx:id="back" layoutX="376.0" layoutY="182.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="91.0" text="뒤로">
+         <font>
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
+      <Label fx:id="brLabel" layoutX="162.0" layoutY="34.0" prefHeight="20.0" prefWidth="175.0" text="Label" textFill="#dddddd">
+         <font>
+            <Font name="HYcysM" size="18.0" />
          </font></Label>
-      <Label fx:id="brLabel2" layoutX="162.0" layoutY="50.0" prefHeight="15.0" prefWidth="91.0" text="Label">
+      <Label fx:id="brLabel2" layoutX="162.0" layoutY="78.0" prefHeight="19.0" prefWidth="175.0" text="Label" textFill="#dddddd">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="18.0" />
          </font></Label>
-      <Label layoutX="61.0" layoutY="50.0" text="이름">
+      <Label layoutX="48.0" layoutY="77.0" text="이름" textFill="#dddddd">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="18.0" />
          </font></Label>
-      <Label layoutX="70.0" layoutY="20.0" text="ID">
+      <Label layoutX="52.0" layoutY="35.0" text="ID" textFill="#dddddd">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="18.0" />
          </font></Label>
-      <Label fx:id="brLabel3" layoutX="162.0" layoutY="83.0" prefHeight="15.0" prefWidth="91.0" text="Label">
+      <Label fx:id="brLabel3" layoutX="162.0" layoutY="117.0" prefHeight="19.0" prefWidth="175.0" text="Label" textFill="#dddddd">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="18.0" />
          </font></Label>
-      <Label layoutX="42.0" layoutY="83.0" text="전화번호">
+      <Label layoutX="45.0" layoutY="117.0" text="전화번호" textFill="#dddddd">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="18.0" />
          </font></Label>
-      <ComboBox fx:id="cmid" layoutX="238.0" layoutY="48.0" prefWidth="150.0" promptText="대여 도서 목록" />
-      <Label fx:id="lbbook" layoutX="260.0" layoutY="20.0" text="Label">
+      <ComboBox fx:id="cmid" layoutX="369.0" layoutY="76.0" prefWidth="150.0" promptText="대여 도서 목록" />
+      <Label fx:id="lbbook" layoutX="369.0" layoutY="35.0" text="Label" textFill="#dddddd">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="18.0" />
          </font>
       </Label>
    </children>

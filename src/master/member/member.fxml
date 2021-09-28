@@ -6,15 +6,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="217.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.member.MasterMemberController">
+<AnchorPane prefHeight="241.0" prefWidth="389.0" style="-fx-background-color: #708090;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.member.MasterMemberController">
    <children>
-      <Label layoutX="101.0" layoutY="19.0" prefHeight="21.0" prefWidth="141.0" text="&lt;회원 관리&gt;">
+      <Label layoutX="111.0" layoutY="32.0" prefHeight="26.0" prefWidth="174.0" text="&lt;회원 관리&gt;" textFill="#d7d7d7">
          <font>
-            <Font size="23.0" />
+            <Font name="HYcysM" size="25.0" />
          </font>
       </Label>
-      <Button layoutX="242.0" layoutY="82.0" mnemonicParsing="false" onAction="#memberSearch" prefHeight="38.0" prefWidth="64.0" text="검색" />
-      <TextField fx:id="memberSearchId" layoutX="41.0" layoutY="82.0" prefHeight="38.0" prefWidth="174.0" promptText="회원아이디" />
-      <Button layoutX="243.0" layoutY="154.0" mnemonicParsing="false" onAction="#memberBack" text="뒤로가기" />
+      <Button layoutX="255.0" layoutY="92.0" mnemonicParsing="false" onAction="#memberSearch" prefHeight="47.0" prefWidth="82.0" text="검색">
+         <font>
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
+      <TextField fx:id="memberSearchId" layoutX="54.0" layoutY="93.0" prefHeight="47.0" prefWidth="174.0" promptText="회원아이디" />
+      <Button layoutX="254.0" layoutY="173.0" mnemonicParsing="false" onAction="#memberBack" prefHeight="25.0" prefWidth="82.0" text="뒤로가기">
+         <font>
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>

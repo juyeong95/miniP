@@ -7,17 +7,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="303.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.del.MasterDelController">
+<AnchorPane prefHeight="332.0" prefWidth="373.0" style="-fx-background-color: #708090;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.del.MasterDelController">
    <children>
-      <Label layoutX="65.0" layoutY="21.0" prefHeight="21.0" prefWidth="208.0" text="&lt;Master 삭제기능&gt;">
+      <Label layoutX="67.0" layoutY="38.0" prefHeight="26.0" prefWidth="252.0" text="&lt;Master 삭제기능&gt;" textFill="#d0d0d0">
          <font>
-            <Font size="20.0" />
+            <Font name="HYcysM" size="25.0" />
          </font>
       </Label>
-      <TextField fx:id="masterDelNum" layoutX="38.0" layoutY="83.0" prefHeight="39.0" prefWidth="166.0" />
-      <Button layoutX="225.0" layoutY="83.0" mnemonicParsing="false" onAction="#identify" prefHeight="39.0" prefWidth="55.0" text="확인" />
-      <TextArea fx:id="masterDelContent" layoutX="41.0" layoutY="134.0" prefHeight="90.0" prefWidth="241.0" />
-      <Button layoutX="114.0" layoutY="244.0" mnemonicParsing="false" onAction="#masterDel" prefHeight="32.0" prefWidth="72.0" text="삭제" />
-      <Button layoutX="210.0" layoutY="244.0" mnemonicParsing="false" onAction="#masterDelBack" prefHeight="32.0" prefWidth="72.0" text="뒤로가기" />
+      <TextField fx:id="masterDelNum" layoutX="53.0" layoutY="100.0" prefHeight="39.0" prefWidth="178.0" />
+      <Button layoutX="250.0" layoutY="100.0" mnemonicParsing="false" onAction="#identify" prefHeight="39.0" prefWidth="62.0" text="확인">
+         <font>
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
+      <TextArea fx:id="masterDelContent" layoutX="54.0" layoutY="151.0" prefHeight="90.0" prefWidth="258.0" />
+      <Button layoutX="133.0" layoutY="261.0" mnemonicParsing="false" onAction="#masterDel" prefHeight="32.0" prefWidth="72.0" text="삭제">
+         <font>
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
+      <Button layoutX="224.0" layoutY="261.0" mnemonicParsing="false" onAction="#masterDelBack" prefHeight="32.0" prefWidth="88.0" text="뒤로가기">
+         <font>
+            <Font name="HYcysM" size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>

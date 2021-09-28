@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="179.0" prefWidth="307.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.MasterController">
+<AnchorPane prefHeight="197.0" prefWidth="307.0" style="-fx-background-color: #708090;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="master.MasterController">
    <children>
-      <TextField fx:id="masterId" layoutX="35.0" layoutY="64.0" prefHeight="23.0" prefWidth="140.0" promptText="masterId" />
-      <PasswordField fx:id="masterPwd" layoutX="35.0" layoutY="101.0" prefHeight="23.0" prefWidth="140.0" promptText="masterpwd" />
-      <Label layoutX="61.0" layoutY="6.0" prefHeight="54.0" prefWidth="240.0" text="&lt;관리자 계정 로그인&gt;">
+      <TextField fx:id="masterId" layoutX="35.0" layoutY="70.0" prefHeight="23.0" prefWidth="140.0" promptText="masterId" />
+      <PasswordField fx:id="masterPwd" layoutX="35.0" layoutY="107.0" prefHeight="23.0" prefWidth="140.0" promptText="masterpwd" />
+      <Label layoutX="54.0" layoutY="6.0" prefHeight="54.0" prefWidth="240.0" text="&lt;관리자 계정 로그인&gt;" textFill="#ebebeb">
          <font>
-            <Font size="18.0" />
+            <Font name="HYcysM" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="mlogin" layoutX="206.0" layoutY="63.0" mnemonicParsing="false" onAction="#masterLogin" prefHeight="61.0" prefWidth="66.0" text="login" />
-      <Button layoutX="207.0" layoutY="137.0" mnemonicParsing="false" onAction="#masterBack" prefHeight="23.0" prefWidth="66.0" text="뒤로가기" />
+      <Button fx:id="mlogin" layoutX="206.0" layoutY="69.0" mnemonicParsing="false" onAction="#masterLogin" prefHeight="61.0" prefWidth="66.0" text="login" />
+      <Button layoutX="207.0" layoutY="154.0" mnemonicParsing="false" onAction="#masterBack" prefHeight="23.0" prefWidth="66.0" text="뒤로가기" />
    </children>
 </AnchorPane>

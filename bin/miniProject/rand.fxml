@@ -4,41 +4,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="413.0" prefWidth="188.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane prefHeight="595.0" prefWidth="307.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="22.0" layoutY="14.0" prefHeight="15.0" prefWidth="103.0" text="첫번째 추천책" textFill="#161617">
+      <Label alignment="CENTER" layoutX="88.0" layoutY="124.0" prefHeight="19.0" prefWidth="128.0" text="&lt;첫번째 추천책&gt;" textFill="#161617">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="43.0" prefHeight="15.0" prefWidth="77.0" text="책 제목" />
-      <Label layoutX="22.0" layoutY="73.0" prefHeight="15.0" prefWidth="77.0" text="저자" />
-      <Label fx:id="book1N" layoutX="125.0" layoutY="43.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label fx:id="book1P" layoutX="125.0" layoutY="106.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label fx:id="book1A" layoutX="125.0" layoutY="73.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label layoutX="22.0" layoutY="106.0" prefHeight="15.0" prefWidth="77.0" text="출판사" />
-      <Label layoutX="22.0" layoutY="167.0" prefHeight="15.0" prefWidth="77.0" text="책 제목" />
-      <Label layoutX="22.0" layoutY="199.0" prefHeight="15.0" prefWidth="77.0" text="저자" />
-      <Label layoutX="22.0" layoutY="232.0" prefHeight="15.0" prefWidth="77.0" text="출판사" />
-      <Label fx:id="book2N" layoutX="125.0" layoutY="167.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label fx:id="book2A" layoutX="125.0" layoutY="199.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label fx:id="book2P" layoutX="125.0" layoutY="232.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label alignment="CENTER" layoutX="22.0" layoutY="132.0" prefHeight="15.0" prefWidth="103.0" text="두번째 추천책" textFill="#161617">
+      <Label layoutX="80.0" layoutY="156.0" prefHeight="15.0" prefWidth="77.0" text="책 제목" />
+      <Label layoutX="80.0" layoutY="186.0" prefHeight="15.0" prefWidth="77.0" text="저자" />
+      <Label layoutX="80.0" layoutY="219.0" prefHeight="15.0" prefWidth="77.0" text="출판사" />
+      <Label fx:id="book1N" layoutX="183.0" layoutY="156.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label fx:id="book1P" layoutX="183.0" layoutY="219.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label fx:id="book1A" layoutX="183.0" layoutY="186.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label alignment="CENTER" layoutX="82.0" layoutY="280.0" prefHeight="19.0" prefWidth="128.0" text="&lt;두번째 추천책&gt;" textFill="#161617">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="22.0" layoutY="266.0" prefHeight="15.0" prefWidth="103.0" text="세번째 추천책" textFill="#161617">
+      <Label layoutX="85.0" layoutY="312.0" prefHeight="15.0" prefWidth="77.0" text="책 제목" />
+      <Label layoutX="85.0" layoutY="344.0" prefHeight="15.0" prefWidth="77.0" text="저자" />
+      <Label layoutX="85.0" layoutY="377.0" prefHeight="15.0" prefWidth="77.0" text="출판사" />
+      <Label fx:id="book2N" layoutX="183.0" layoutY="315.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label fx:id="book2A" layoutX="188.0" layoutY="344.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label fx:id="book2P" layoutX="188.0" layoutY="377.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label alignment="CENTER" layoutX="80.0" layoutY="439.0" prefHeight="19.0" prefWidth="143.0" text="&lt;세번째 추천책&gt;" textFill="#161617">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="300.0" prefHeight="15.0" prefWidth="77.0" text="책 제목" />
-      <Label layoutX="22.0" layoutY="333.0" prefHeight="15.0" prefWidth="77.0" text="저자" />
-      <Label layoutX="22.0" layoutY="360.0" prefHeight="15.0" prefWidth="77.0" text="출판사" />
-      <Label fx:id="book3P" layoutX="125.0" layoutY="360.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label fx:id="book3A" layoutX="125.0" layoutY="333.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
-      <Label fx:id="book3N" layoutX="125.0" layoutY="300.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label layoutX="85.0" layoutY="473.0" prefHeight="15.0" prefWidth="77.0" text="책 제목" />
+      <Label layoutX="85.0" layoutY="506.0" prefHeight="15.0" prefWidth="77.0" text="저자" />
+      <Label layoutX="85.0" layoutY="533.0" prefHeight="15.0" prefWidth="77.0" text="출판사" />
+      <Label fx:id="book3P" layoutX="188.0" layoutY="533.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label fx:id="book3A" layoutX="188.0" layoutY="506.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
+      <Label fx:id="book3N" layoutX="188.0" layoutY="473.0" prefHeight="15.0" prefWidth="77.0" text="Label" />
    </children>
 </AnchorPane>

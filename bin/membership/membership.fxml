@@ -7,53 +7,52 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="377.0" prefWidth="720.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="membership.MembershipController">
+<AnchorPane prefHeight="678.0" prefWidth="621.0" style="-fx-background-color: #ffc0cb;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="membership.MembershipController">
    <children>
-      <Label layoutX="280.0" layoutY="26.0" prefHeight="42.0" prefWidth="160.0" text="회원가입">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label layoutX="40.0" layoutY="103.0" text="이       름">
+      <Label layoutX="137.0" layoutY="171.0" text="이       름">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="373.0" layoutY="103.0" text="아   이   디">
+      <Label layoutX="138.0" layoutY="236.0" text="아   이   디">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="373.0" layoutY="166.0" text="비밀번호 확인">
+      <Label layoutX="139.0" layoutY="368.0" text="비밀번호 확인">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="42.0" layoutY="166.0" text="비밀번호">
+      <Label layoutX="139.0" layoutY="301.0" text="비밀번호">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="40.0" layoutY="225.0" text="휴대폰 번호">
+      <Label layoutX="139.0" layoutY="433.0" text="휴대폰 번호">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="fxName" layoutX="143.0" layoutY="102.0" prefHeight="23.0" prefWidth="176.0" promptText="이름 입력" />
-      <TextField fx:id="fxId" layoutX="501.0" layoutY="102.0" prefHeight="23.0" prefWidth="176.0" promptText="아이디 입력" />
-      <PasswordField fx:id="fxPwd" layoutX="143.0" layoutY="165.0" prefHeight="23.0" prefWidth="176.0" promptText="비밀번호 입력" />
-      <PasswordField fx:id="fxPwdC" layoutX="501.0" layoutY="165.0" prefHeight="23.0" prefWidth="176.0" promptText="비밀번호 재입력" />
-      <TextField fx:id="fxPN" layoutX="146.0" layoutY="224.0" prefHeight="23.0" prefWidth="176.0" promptText="010-xxxx-xxxx 형태로 입력" />
-      <Button layoutX="177.0" layoutY="281.0" mnemonicParsing="false" onAction="#confirmBut" prefHeight="52.0" prefWidth="120.0" text="확  인">
+      <TextField fx:id="fxName" layoutX="309.0" layoutY="165.0" prefHeight="33.0" prefWidth="176.0" promptText="이름 입력" />
+      <TextField fx:id="fxId" layoutX="309.0" layoutY="230.0" prefHeight="33.0" prefWidth="176.0" promptText="아이디 입력" />
+      <PasswordField fx:id="fxPwd" layoutX="309.0" layoutY="295.0" prefHeight="33.0" prefWidth="176.0" promptText="비밀번호 입력" />
+      <PasswordField fx:id="fxPwdC" layoutX="309.0" layoutY="362.0" prefHeight="33.0" prefWidth="176.0" promptText="비밀번호 재입력" />
+      <TextField fx:id="fxPN" layoutX="309.0" layoutY="427.0" prefHeight="33.0" prefWidth="176.0" promptText="010-xxxx-xxxx 형태로 입력" />
+      <Button layoutX="128.0" layoutY="530.0" mnemonicParsing="false" onAction="#confirmBut" prefHeight="52.0" prefWidth="120.0" stylesheets="@../miniProject/style.css" text="확  인">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="417.0" layoutY="281.0" mnemonicParsing="false" onAction="#cancelBut" prefHeight="52.0" prefWidth="114.0" text="취  소">
+      <Button layoutX="364.0" layoutY="530.0" mnemonicParsing="false" onAction="#cancelBut" prefHeight="52.0" prefWidth="114.0" stylesheets="@../miniProject/style.css" text="취  소">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
+      <Label layoutX="225.0" layoutY="66.0" text="회원가입" textFill="#ff6f6f">
+         <font>
+            <Font name="HYcysM" size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
