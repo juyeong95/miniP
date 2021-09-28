@@ -21,16 +21,17 @@ import master.del.MasterDelMain;
 import master.mod.MasterModMain;
 import memdto.BookDTO;
 import memdto.MemDTO;
-import miniProject.LoginController;
-import service.MyServiceImpl;
 
 public class MasterMemberController implements Initializable{
    DBCommon db = new DBCommon();
-   Parent root;
+   static Parent root;
    MasterDelMain mdm = new MasterDelMain();
    MasterModMain mmm = new MasterModMain();
+   static Parent root1 = null;
    static Parent root2 = null;
    static String id;
+   int rs;
+   MemDTO dto = new MemDTO();
 
    @Override
    public void initialize(URL arg0, ResourceBundle arg1) {
@@ -41,11 +42,11 @@ public class MasterMemberController implements Initializable{
       this.root = root;
    }
    
-   public void memberSearch() {
+   public void memberSearch() { //검색하기
       TextField searchId = (TextField)root.lookup("#memberSearchId");
-            
-            MemDTO dto = memCheck(searchId.getText());   
-            
+      dto = memCheck(searchId.getText());   
+      
+
             if(dto != null) {         
                Stage stage = new Stage();   
                FXMLLoader loader = new FXMLLoader(getClass().getResource("memList.fxml"));
@@ -85,7 +86,8 @@ public class MasterMemberController implements Initializable{
                db.getAlert("존재하지 않는 ID입니다.");
             }
    }
-   public ArrayList<BookDTO> cm(){
+   
+   public ArrayList<BookDTO> cm(){ //BOOK-List 
       ArrayList<BookDTO> list = new ArrayList<BookDTO>();
       try {
          PreparedStatement ps;
@@ -99,15 +101,14 @@ public class MasterMemberController implements Initializable{
       } catch (Exception e) {
          // TODO: handle exception
       }
-      return list;
-      
+      return list;  
    }
    
-   public void memberBack() {
+   public void memberBack() { //뒤로 
       db.closeStage(root);
    }
    
-   public MemDTO memCheck(String id) {
+   public MemDTO memCheck(String id) { //id로 멤버 불러오기 
       String sql = "select * from MEMBER where id=?";
       MemDTO dto = null;
       try {
@@ -127,15 +128,55 @@ public class MasterMemberController implements Initializable{
       return dto;   
    }
    
-   public void del() {
-      mdm.getdel();
+   public void del() { //마스터 멤버 삭제
+		DBCommon.setDBConnection();
+		PreparedStatement ps;
+
+		try {
+			ps = DBCommon.con.prepareStatement("delete from member where id = '"+id+"'");
+			rs = ps.executeUpdate();
+
+			if(rs == 1) {
+				db.closeStage(root2);
+				DBCommon.getAlert("삭제 성공");
+			}else {
+				DBCommon.getAlert("삭제 실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
    }
    
-   public void mod() {
-      mmm.getmod();
+   public void mod() {	//마스터 멤버 수정
+	   Stage stage = new Stage();   
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("memberMod.fxml"));
+       Parent root1 = null;
+       try {
+			root1 = loader.load();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+       
+       	Label userid = (Label)root1.lookup("#userId");
+		Label exname = (Label)root1.lookup("#exName");
+		Label exphone = (Label)root1.lookup("#exPhone");
+		
+		MemDTO dto = new MemDTO();
+
+		userid.setText(dto.getId());
+		exname.setText(dto.getName());
+		exphone.setText(dto.getPhone());
+		
+		MasterMemberModController mmmclt = loader.getController();
+		mmmclt.setRoot(root1);
+		
+		Scene scene = new Scene(root1);
+       
+		stage.setScene(scene);
+		stage.show();
    }
    
-   public void back() {
+   public void back() {//뒤로
       db.closeStage(root2);
    }
 }

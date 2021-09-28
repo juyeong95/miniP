@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="407.0" prefWidth="420.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="miniProject.LoginController">
+   <children>
+      <Button layoutX="64.0" layoutY="310.0" mnemonicParsing="false" onAction="#blinfor" prefHeight="51.0" prefWidth="116.0" text="도서 정보">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="244.0" layoutY="310.0" mnemonicParsing="false" onAction="#blcancle" prefHeight="51.0" prefWidth="116.0" text="취 소">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="126.0" layoutY="34.0" prefHeight="31.0" prefWidth="168.0" text="검색 도서 목록">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ListView fx:id="bllist" layoutX="41.0" layoutY="74.0" prefHeight="224.0" prefWidth="292.0" />
+      <ListView fx:id="blyn" layoutX="332.0" layoutY="74.0" prefHeight="224.0" prefWidth="70.0" />
+   </children>
+</AnchorPane>
