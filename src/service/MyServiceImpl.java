@@ -44,7 +44,7 @@ public class MyServiceImpl implements MyService{
 			if(dto.getPwd().equals(txpw.getText())) { 
 				//dto값에서 pwd값을 가져오고(데이터베이스 아이디값에 저장된 패스워드값) 입력된 패스워드와 같은지 확인 후 맞으면 실행
 				Stage stage = new Stage();
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/miniproject/login.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/miniProject/login.fxml"));
 				Parent root1=null;
 				try {
 					root1 = loader.load();
@@ -59,7 +59,7 @@ public class MyServiceImpl implements MyService{
 				ctl.setRoot(root1);  //LoginController에 root1(login.fxml)을 전달한다.
 				
 				txpw.clear();
-				
+				scene.getStylesheets().add(getClass().getResource("/miniProject/login.css").toString());
 				stage.setScene(scene);
 				stage.show();
 				

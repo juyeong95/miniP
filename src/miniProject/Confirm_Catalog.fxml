@@ -27,10 +27,10 @@
             <Font name="HYcysM" size="20.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cmbook" layoutX="172.0" layoutY="218.0" prefHeight="39.0" prefWidth="309.0" promptText="나의 대여목록" />
-      <Label fx:id="fxId" layoutX="109.0" layoutY="100.0" prefHeight="39.0" prefWidth="87.0">
+      <ComboBox fx:id="cmbook" layoutX="285.0" layoutY="222.0" prefHeight="39.0" prefWidth="254.0" promptText="나의 대여목록" />
+      <Label fx:id="fxId" layoutX="155.0" layoutY="222.0" prefHeight="39.0" prefWidth="108.0">
          <font>
-            <Font size="20.0" />
+            <Font name="HYcysM" size="20.0" />
          </font>
       </Label>
    </children>

@@ -75,6 +75,7 @@ public class LoginController {
          lvyn.getItems().addAll(yn.get(i).getId());
          }
          Scene sc = new Scene(root4);
+         sc.getStylesheets().add(getClass().getResource("slist.css").toString());
          LoginController c = lo.getController();
          c.setRoot(root4);
          

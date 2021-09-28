@@ -8,22 +8,22 @@
 
 <AnchorPane prefHeight="463.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniProject.LoginController">
    <children>
-      <Button layoutX="81.0" layoutY="376.0" mnemonicParsing="false" onAction="#blinfor" prefHeight="51.0" prefWidth="116.0" stylesheets="@style.css" text="도서 정보">
+      <Button layoutX="81.0" layoutY="396.0" mnemonicParsing="false" onAction="#blinfor" prefHeight="31.0" prefWidth="116.0" stylesheets="@style.css" text="도서 정보">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="261.0" layoutY="376.0" mnemonicParsing="false" onAction="#blcancle" prefHeight="51.0" prefWidth="116.0" stylesheets="@style.css" text="취 소">
+      <Button layoutX="261.0" layoutY="396.0" mnemonicParsing="false" onAction="#blcancle" prefHeight="31.0" prefWidth="116.0" stylesheets="@style.css" text="취 소">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="143.0" layoutY="100.0" prefHeight="31.0" prefWidth="168.0" text="검색 도서 목록">
+      <Label layoutX="143.0" layoutY="113.0" prefHeight="31.0" prefWidth="168.0" text="검색 도서 목록">
          <font>
-            <Font size="24.0" />
+            <Font name="HYcysM" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="bllist" layoutX="58.0" layoutY="140.0" prefHeight="224.0" prefWidth="292.0" />
-      <ListView fx:id="blyn" layoutX="349.0" layoutY="140.0" prefHeight="224.0" prefWidth="70.0" />
+      <ListView fx:id="bllist" layoutX="58.0" layoutY="153.0" prefHeight="224.0" prefWidth="292.0" />
+      <ListView fx:id="blyn" layoutX="349.0" layoutY="153.0" prefHeight="224.0" prefWidth="70.0" />
    </children>
 </AnchorPane>
